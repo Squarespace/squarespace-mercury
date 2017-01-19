@@ -1,0 +1,7 @@
+{
+  "extends": "@sqs/eslint-config-squarespace/vanilla",
+  "env": {
+    "browser": "true",
+    "mocha": "true"
+  }
+}
