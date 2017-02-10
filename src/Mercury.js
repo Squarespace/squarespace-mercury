@@ -36,6 +36,7 @@ class Mercury {
 
     this.loadEvent = new CustomEvent('mercury:load');
     this.unloadEvent = new CustomEvent('mercury:unload');
+    this.navigateEvent = new CustomEvent('mercury:navigate');
 
     this.boundOnClick = this.onClick.bind(this);
     this.boundOnPopState = this.onPopState.bind(this);
@@ -162,6 +163,7 @@ class Mercury {
    * @param  {Function}  callback          Callback to call after request is done
    */
   makeRequest(url, isPopState, callback) {
+    window.dispatchEvent(this.navigateEvent);
     if (this.onNavigate) {
       this.onNavigate();
     }
