@@ -24,14 +24,7 @@ export const replaceScript = (element, referenceElement) => {
   const parentElement = element.parentElement;
   const newScriptElement = document.createElement('script');
   newScriptElement.innerHTML = referenceElement.innerHTML;
-
-  if (element.hasAttributes()) {
-    const attrs = element.attributes;
-    for (let i = 0; i < attrs.length; i++) {
-      newScriptElement.setAttribute(attrs[i].name, attrs[i].value);
-    }
-  }
-
+  replaceAttributes(newScriptElement, element);
   parentElement.removeChild(element);
   parentElement.appendChild(newScriptElement);
 };
