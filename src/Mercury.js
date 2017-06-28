@@ -1,4 +1,4 @@
-import { replaceAttributes } from './utils';
+import { replaceAttributes, replaceScript } from './utils';
 import { BASE_ON_CLICK_EXCEPTIONS } from './constants';
 import { isValidUpdateMatrix, validateOptionalParam, validateOnLoadDelay } from './validation';
 
@@ -139,6 +139,9 @@ class Mercury {
         }
         if (updateConfig.updateAttrs) {
           replaceAttributes(activeElement, referenceElement);
+        }
+        if (updateConfig.updateScript) {
+          replaceScript(activeElement, referenceElement);
         }
       } else if (activeElement) {
         activeElement.parentNode.removeChild(activeElement);

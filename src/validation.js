@@ -11,14 +11,15 @@ export const isValidUpdateMatrix = (matrix) => {
     return false;
   }
   return matrix.every((updateConfig) => {
-    const { selector, updateHTML, updateAttrs } = updateConfig;
+    const { selector, updateHTML, updateAttrs, updateScript } = updateConfig;
     if (typeof selector !== 'string') {
       console.error(`${selector} is not a valid selector.`);
       return false;
     }
     const nonBooleanUpdateHTML = typeof updateHTML !== 'undefined' && typeof updateHTML !== 'boolean';
     const nonBooleanUpdateAttrs = typeof updateAttrs !== 'undefined' && typeof updateAttrs !== 'boolean';
-    if (nonBooleanUpdateHTML || nonBooleanUpdateAttrs) {
+    const nonBooleanUpdateScript = typeof updateScript !== 'undefined' && typeof updateScript !== 'boolean';
+    if (nonBooleanUpdateHTML || nonBooleanUpdateAttrs || nonBooleanUpdateScript) {
       console.error(`Non-boolean updateHTML or updateAttrs provided for selector ${selector}.`);
       return false;
     }
