@@ -20,7 +20,7 @@ export const isValidUpdateMatrix = (matrix) => {
     const nonBooleanUpdateAttrs = typeof updateAttrs !== 'undefined' && typeof updateAttrs !== 'boolean';
     const nonBooleanUpdateScript = typeof updateScript !== 'undefined' && typeof updateScript !== 'boolean';
     if (nonBooleanUpdateHTML || nonBooleanUpdateAttrs || nonBooleanUpdateScript) {
-      console.error(`Non-boolean updateHTML or updateAttrs provided for selector ${selector}.`);
+      console.error(`Non-boolean updateHTML, updateAttrs, or updateScript provided for selector ${selector}.`);
       return false;
     }
     return true;
