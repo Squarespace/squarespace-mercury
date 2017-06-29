@@ -13,3 +13,18 @@ export const replaceAttributes = (element, referenceElement) => {
     element.setAttribute(referenceElement.attributes[i].name, referenceElement.attributes[i].value);
   }
 };
+
+/**
+ * Given an element and a new reference element, create and insert
+ * a new script tag to fire.
+ * @param  {HTMLElement} element
+ * @param  {HTMLElement} referenceElement
+ */
+export const replaceScript = (element, referenceElement) => {
+  const parentElement = element.parentElement;
+  const newScriptElement = document.createElement('script');
+  newScriptElement.innerHTML = referenceElement.innerHTML;
+  replaceAttributes(newScriptElement, element);
+  parentElement.removeChild(element);
+  parentElement.appendChild(newScriptElement);
+};
