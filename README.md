@@ -18,7 +18,8 @@ const instance = new Mercury({
   updateMatrix: [
     { selector: 'title', updateHTML: true },
     { selector: 'body', updateAttrs: true },
-    { selector: '.content', updateHTML: true }
+    { selector: '.content', updateHTML: true },
+    { selector: 'script[data-name="static-context"]', updateScript: true }
   ]
 });
 ```
