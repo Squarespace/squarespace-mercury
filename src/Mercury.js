@@ -109,7 +109,8 @@ class Mercury {
       scroll: {
         x: window.pageXOffset,
         y: window.pageYOffset
-      }
+      },
+      type: 'mercury',
     };
     window.history.replaceState(stateObject, document.title, url);
   }
@@ -234,7 +235,7 @@ class Mercury {
    */
   modifyPageAndHistory(url, isPopState, callback, responseText) {
     if (!isPopState) {
-      const stateObject = { url };
+      const stateObject = { url, type: 'mercury' };
       window.history.pushState(stateObject, document.title, url);
     }
     this.updateDOM(url, responseText);
@@ -292,7 +293,7 @@ class Mercury {
    * @param  {Object} e   Event object from popstate
    */
   onPopState(e) {
-    if (!e.state) { return; }
+    if (!e.state || e.state.type !== 'mercury') { return; }
     const callback = () => {
       if (e.state.scroll) {
         window.scrollTo(e.state.scroll.x, e.state.scroll.y);
