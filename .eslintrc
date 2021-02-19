@@ -1,7 +1,9 @@
 {
-  "extends": "eslint-config-squarespace/vanilla",
+  "extends": "eslint-config-squarespace",
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "env": {
-    "browser": "true",
     "mocha": "true"
   }
 }
