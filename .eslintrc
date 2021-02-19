@@ -1,5 +1,8 @@
 {
   "extends": "eslint-config-squarespace",
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "env": {
     "mocha": "true"
   }
